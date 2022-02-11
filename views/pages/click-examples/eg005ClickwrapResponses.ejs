@@ -1,0 +1,60 @@
+<% include ../../partials/examplesHead %>
+
+<h4>5. Get clickwrap responses</h4>
+<p>
+    Gets user responses to your clickwrap agreements.
+</p>
+
+<% include ../../partials/docBody %>
+
+<p>API method used:
+    <a target='_blank'
+       href="https://developers.docusign.com/docs/click-api/reference/accounts/clickwraps/getclickwrapagreements"
+    >
+        ClickWraps::getClickwrapAgreements
+    </a>
+</p>
+
+<% include ../../partials/gitSource %>
+
+<% if (clickwrapOk) { %>
+
+    <p>
+        First, test your clickwrap:
+    </p>
+    
+    <ul>
+        <li>Log in to your developer account and select the <strong>Manage</strong> page.
+        <li>Select the <strong>Clickwraps</strong> tab.
+        <li>
+            In the list of active clickwraps, locate the one you want to test, then click 
+            the dropdown arrow to the right of <strong>COPY CODE</strong> and select <strong>Test Clickwrap</strong>.
+        </li>
+        <li>In the Test Clickwrap dialog box, click <strong>TEST CLICKWRAP</strong>.
+        <li>In the Test Your Clickwrap browser page, enter any string, then click <strong>Test Clickwrap</strong>.
+        <li>Review your displayed clickwrap and click <strong>AGREE</strong> (or the equivalent button you configured) to complete the test.
+    </ul>
+    
+    <p>
+        Then enter the same string you used to test your clickwrap in the field below.
+    </p>
+
+    <form class="eg" action="" method="post" data-busy="form">
+        <div class="form-group">
+            <label for="clientUserId">User identifier</label>
+            <input type="text" class="form-control" id="clientUserId"
+                   name="clientUserId" required>
+        </div>
+        <input type="hidden" name="_csrf" value="<%- csrfToken %>">
+        <button type="submit" class="btn btn-docu">Continue</button>
+    </form>
+<% } else { %>
+    <p>Problem: please first create a clickwrap using
+        <a href="eg001">example 1.</a><br/>Thank you.
+    </p>
+    <form class="eg" action="eg001" method="get">
+        <button type="submit" class="btn btn-docu">Continue</button>
+    </form>
+<% } %>
+
+<% include ../../partials/examplesFoot %>
